@@ -1,12 +1,14 @@
 package com.example.raduga.alphastrike;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements JoystickView.JoystickListener{
+
+    public TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,5 +20,28 @@ public class MainActivity extends Activity {
         //JoystickView joystickView = new JoystickView(this);
 
         setContentView(R.layout.activity_main);
+
+        textView = (TextView) findViewById(R.id.textView);
+    }
+
+    @Override
+    public void onJoystickMoved(int direction) {
+        switch(direction) {
+            case JoystickView.MOVE_UP:
+                textView.setText("UP");
+                break;
+            case JoystickView.MOVE_DOWN:
+                textView.setText("DOWN");
+                break;
+            case JoystickView.MOVE_LEFT:
+                textView.setText("LEFT");
+                break;
+            case JoystickView.MOVE_RIGHT:
+                textView.setText("RIGHT");
+                break;
+            default:
+                textView.setText("NONE");
+                break;
+        }
     }
 }
