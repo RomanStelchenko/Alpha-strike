@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class MainActivity extends Activity implements JoystickView.JoystickListener{
+public class MainActivity extends Activity implements JoystickView.JoystickListener, ShotView.ShotViewListener {
 
     private GameView gameView;
 
@@ -24,5 +24,10 @@ public class MainActivity extends Activity implements JoystickView.JoystickListe
     @Override
     public void onJoystickMoved(int direction) {
         gameView.drawTank(direction);
+    }
+
+    @Override
+    public void onShotViewPressed() {
+
     }
 }
