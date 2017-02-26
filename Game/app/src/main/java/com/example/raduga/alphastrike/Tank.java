@@ -15,6 +15,7 @@ public class Tank {
     private int width, height;
     private int currentFrame;
     private int speed;
+    private int currentDirection;
 
     public Tank(Bitmap tankSprite, int startPosX, int startPosY) {
         this.tankSprite = tankSprite;
@@ -37,18 +38,22 @@ public class Tank {
             case JoystickView.MOVE_UP:
                 currentPosY -= speed;
                 currentFrame = 0;
+                currentDirection = direction;
                 break;
             case JoystickView.MOVE_DOWN:
                 currentPosY += speed;
                 currentFrame = 1;
+                currentDirection = direction;
                 break;
             case JoystickView.MOVE_LEFT:
                 currentPosX -= speed;
                 currentFrame = 2;
+                currentDirection = direction;
                 break;
             case JoystickView.MOVE_RIGHT:
                 currentPosX += speed;
                 currentFrame = 3;
+                currentDirection = direction;
                 break;
             default:
                 break;
@@ -64,5 +69,9 @@ public class Tank {
         Rect dst = new Rect(currentPosX, currentPosY, currentPosX + width, currentPosY + height);
 
         canvas.drawBitmap(tankSprite, src, dst, null);
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
     }
 }
