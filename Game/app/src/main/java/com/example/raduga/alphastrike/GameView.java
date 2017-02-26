@@ -21,7 +21,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         getHolder().setFormat(PixelFormat.TRANSPARENT);
         getHolder().addCallback(this);
 
-        tankSprite = BitmapFactory.decodeResource(getResources(), R.drawable.tank_up_32_32);
+        tankSprite = BitmapFactory.decodeResource(getResources(), R.drawable.tank_sprite_4_64x64);
         tank = new Tank(tankSprite, 32, 32);
     }
 
@@ -32,7 +32,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         getHolder().setFormat(PixelFormat.TRANSPARENT);
         getHolder().addCallback(this);
 
-        tankSprite = BitmapFactory.decodeResource(getResources(), R.drawable.tank_up_32_32);
+        tankSprite = BitmapFactory.decodeResource(getResources(), R.drawable.tank_sprite_4_64x64);
         tank = new Tank(tankSprite, 32, 32);
     }
 
@@ -43,8 +43,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         getHolder().setFormat(PixelFormat.TRANSPARENT);
         getHolder().addCallback(this);
 
-        tankSprite = BitmapFactory.decodeResource(getResources(), R.drawable.tank_up_32_32);
-        tank = new Tank(tankSprite, 32, 32);
+        tankSprite = BitmapFactory.decodeResource(getResources(), R.drawable.tank_sprite_4_64x64);
+        tank = new Tank(tankSprite, 132, 32);
     }
 
     @Override
