@@ -66,7 +66,7 @@ public class JoystickView extends SurfaceView implements SurfaceHolder.Callback,
     }
 
     private void drawJoystick(float newX, float newY) {
-        if(getHolder().getSurface().isValid()) {
+        if(this.getHolder().getSurface().isValid()) {
             Canvas canvas = this.getHolder().lockCanvas();
             Paint colors = new Paint();
             canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
