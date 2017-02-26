@@ -15,6 +15,7 @@ public class ShotView extends SurfaceView implements SurfaceHolder.Callback, Vie
 
     private float centerX, centerY;
     private float radius;
+    public ShotViewListener shotViewCallback;
 
     public ShotView(Context context) {
         super(context);
@@ -23,6 +24,8 @@ public class ShotView extends SurfaceView implements SurfaceHolder.Callback, Vie
         getHolder().setFormat(PixelFormat.TRANSPARENT);
         getHolder().addCallback(this);
         setOnTouchListener(this);
+
+        shotViewCallback = (ShotViewListener) context;
     }
 
     public ShotView(Context context, AttributeSet attributeSet) {
@@ -32,6 +35,8 @@ public class ShotView extends SurfaceView implements SurfaceHolder.Callback, Vie
         getHolder().setFormat(PixelFormat.TRANSPARENT);
         getHolder().addCallback(this);
         setOnTouchListener(this);
+
+        shotViewCallback = (ShotViewListener) context;
     }
 
     public ShotView(Context context, AttributeSet attributeSet, int style) {
@@ -41,6 +46,8 @@ public class ShotView extends SurfaceView implements SurfaceHolder.Callback, Vie
         getHolder().setFormat(PixelFormat.TRANSPARENT);
         getHolder().addCallback(this);
         setOnTouchListener(this);
+
+        shotViewCallback = (ShotViewListener) context;
     }
 
     @Override
@@ -86,10 +93,14 @@ public class ShotView extends SurfaceView implements SurfaceHolder.Callback, Vie
 
         if(v.equals(this)) {
             if(e.getAction() == e.ACTION_DOWN) {
-
+                shotViewCallback.onShotViewPressed();
             }
         }
 
         return true;
+    }
+
+    public interface ShotViewListener {
+        void onShotViewPressed();
     }
 }
